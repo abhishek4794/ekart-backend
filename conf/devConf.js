@@ -1,5 +1,5 @@
-module.exports.port = 1234
+module.exports.port = 4794
 
 module.exports.mongo = {
-	url:''
+	url:'mongodb://localhost:27017/ekart'
 }

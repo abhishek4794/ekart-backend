@@ -6,6 +6,7 @@ const MongoClient = require('mongodb').MongoClient
 
 let conf = require('./conf/devConf.js')
 let products = require('./conf/productlist.js')
+let users = require('./conf/usersList.js')
 
 let routes = {
     POST: {},
@@ -113,7 +114,7 @@ function initDbs() {
 
     if (conf.mongo) {
         //runtime.db.redis = {}
-        var url = 'mongodb://localhost:27017/test'
+        var url =  conf.mongo.url;
         MongoClient.connect(url, function(err, db) {
             runtime.db.mongodb = db
             init();
@@ -128,7 +129,8 @@ function initDbs() {
 function initMongoData() {
 
     //console.log(products)	
-    var url = 'mongodb://localhost:27017/test';
+    var url = conf.mongo.url;
+
     // Use connect method to connect to the Server
     MongoClient.connect(url, function(err, db) {
 
@@ -138,6 +140,14 @@ function initMongoData() {
             //console.log(err,result)
         })
     })
+	
+	MongoClient.connect(url, function(err, db) {
+		var collection = db.collection('user');
+
+		collection.insertMany(users.list, function(err, result) {
+					
+	   })
+    })	
 }
 
 

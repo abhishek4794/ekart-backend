@@ -16,7 +16,7 @@ module.exports.login = {
 function login(req, res) {
     var username = req.payload.username
     var password = req.payload.password
-    console.log('In login')
+    console.log('In login',username,password)
     collection.find({
         username: username
     }).toArray(function(err, docs) {
