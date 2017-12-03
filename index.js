@@ -24,7 +24,7 @@ function sendJson(obj, statusCode) {
     //console.log('obj --->', obj)
     let sObj = JSON.stringify(obj)
     this.setHeader("Content-Type", "application/json");
-	this.setHeader("Access-Control-Allow-Origin", "*");
+    this.setHeader("Access-Control-Allow-Origin", "*");
     this.statusCode = statusCode || 200
     this.end(sObj)
 }
@@ -35,8 +35,8 @@ function handler(req, res) {
 
     let method = req.method
     let url = req.url
-	console.log('In handler -->',method,url)
-     if (method == "OPTIONS") {
+    console.log('In handler -->', method, url)
+    if (method == "OPTIONS") {
         res.setHeader("Access-Control-Allow-Origin", "*");
         res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,usergroup,appkey");
         return res.end();
@@ -49,7 +49,7 @@ function handler(req, res) {
         }, 404)
     } else {
         let ct = req.headers['content-type']
-	
+
         if (method == 'POST') {
             if (ct === 'application/json') {
                 let body = '';
@@ -113,11 +113,11 @@ function initDbs() {
 
     if (conf.mongo) {
         //runtime.db.redis = {}
-	var url = 'mongodb://localhost:27017/test'
-	MongoClient.connect(url, function(err, db) {
-		runtime.db.mongodb = db
-		init();
-	})
+        var url = 'mongodb://localhost:27017/test'
+        MongoClient.connect(url, function(err, db) {
+            runtime.db.mongodb = db
+            init();
+        })
     } else {
         init();
     }
@@ -125,19 +125,19 @@ function initDbs() {
 }
 
 
-function initMongoData(){
-	
-	//console.log(products)	
-	var url = 'mongodb://localhost:27017/test';
-	// Use connect method to connect to the Server
-	MongoClient.connect(url, function(err, db) {
+function initMongoData() {
+
+    //console.log(products)	
+    var url = 'mongodb://localhost:27017/test';
+    // Use connect method to connect to the Server
+    MongoClient.connect(url, function(err, db) {
 
         var collection = db.collection('products');
-		  // Insert some documents
-  		collection.insertMany(products.list,function(err,result){
-				//console.log(err,result)
-		})
-	})
+        // Insert some documents
+        collection.insertMany(products.list, function(err, result) {
+            //console.log(err,result)
+        })
+    })
 }
 
 
