@@ -142,5 +142,5 @@ function initMongoData() {
 
 
 server.listen(4794, () => {
-    console.log('Server listening at 1234')
+    console.log('Server listening at 4794')
 })
