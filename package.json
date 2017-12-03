@@ -1,0 +1,18 @@
+{
+  "name": "snakesladder",
+  "version": "1.0.0",
+  "description": "Snakes and ladder game using Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhishek Y. Marathe",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "md5": "^2.2.1",
+    "mongodb": "^2.2.33",
+    "require-tree": "^1.1.1",
+    "uniqid": "^4.1.1"
+  }
+}
