@@ -150,7 +150,8 @@ function initMongoData() {
     })	
 }
 
-
-server.listen(4794, () => {
-    console.log('Server listening at 4794')
+let port = process.env.PORT || 4794
+ 
+server.listen(port, () => {
+    console.log('Server listening at'+port)
 })
